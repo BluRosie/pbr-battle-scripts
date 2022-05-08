@@ -1,0 +1,6 @@
+*.narc
+*.o
+*.exe
+be_seq_rev/*
+waza_seq_rev/*
+sub_seq_rev/*
