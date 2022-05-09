@@ -1,4 +1,4 @@
-.arm.big
+.nds
 
 .include "include/battlescriptcmd.s"
 .include "include/abilities.s"
@@ -6,7 +6,7 @@
 .include "include/monnums.s"
 .include "include/movenums.s"
 
-.create "waza_seq_rev\waza_seq_rev_290", 0
+.create "build/waza_seq_rev/waza_seq_rev_290", 0
 
 waza_seq_rev_290:
     jumptocurmoveeffectscript

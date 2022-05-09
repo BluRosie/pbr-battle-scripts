@@ -1,4 +1,4 @@
-.arm.big
+.nds
 
 .include "include/battlescriptcmd.s"
 .include "include/abilities.s"
@@ -6,7 +6,7 @@
 .include "include/monnums.s"
 .include "include/movenums.s"
 
-.create "be_seq_rev\be_seq_rev_168", 0
+.create "build/be_seq_rev/be_seq_rev_168", 0
 
 be_seq_rev_168:
     changevar VAR_OP_SET, VAR_09, 0x10000000

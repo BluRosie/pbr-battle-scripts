@@ -1,4 +1,4 @@
-.arm.big
+.nds
 
 .include "include/battlescriptcmd.s"
 .include "include/abilities.s"
@@ -6,7 +6,7 @@
 .include "include/monnums.s"
 .include "include/movenums.s"
 
-.create "be_seq_rev\be_seq_rev_097", 0
+.create "build/be_seq_rev/be_seq_rev_097", 0
 
 be_seq_rev_097:
     ifmonstat IF_NOTMASK, BATTLER_ATTACKER, MON_DATA_STATUS_1, 0x7, _0038

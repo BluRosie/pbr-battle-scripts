@@ -1,6 +1,9 @@
 *.narc
 *.o
 *.exe
+tools/armips
+tools/fixnarc
 be_seq_rev/*
 waza_seq_rev/*
 sub_seq_rev/*
+build/*

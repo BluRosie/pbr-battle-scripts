@@ -1,4 +1,4 @@
-.arm.big
+.nds
 
 .include "include/battlescriptcmd.s"
 .include "include/abilities.s"
@@ -6,7 +6,7 @@
 .include "include/monnums.s"
 .include "include/movenums.s"
 
-.create "sub_seq_rev\sub_seq_rev_024", 0
+.create "build/sub_seq_rev/sub_seq_rev_024", 0
 
 sub_seq_rev_024:
     changevar2 VAR_OP_SET, VAR_HP_TEMP, VAR_54

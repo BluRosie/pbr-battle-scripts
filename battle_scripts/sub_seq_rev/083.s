@@ -1,4 +1,4 @@
-.arm.big
+.nds
 
 .include "include/battlescriptcmd.s"
 .include "include/abilities.s"
@@ -6,7 +6,7 @@
 .include "include/monnums.s"
 .include "include/movenums.s"
 
-.create "sub_seq_rev\sub_seq_rev_083", 0
+.create "build/sub_seq_rev/sub_seq_rev_083", 0
 
 sub_seq_rev_083:
     ifmonstat IF_NOTMASK, BATTLER_FAINTED, MON_DATA_STATUS_2, 0x2000000, _010C

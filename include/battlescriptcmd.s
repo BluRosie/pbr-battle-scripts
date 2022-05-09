@@ -1281,32 +1281,18 @@ VAR_90 equ 90
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro waitwithoutbuttonpress,time
-    .word 0xDA, time
-.endmacro
-
-.macro checkmovetypematches,type,address
-    .word 0xDB, type
-    .word ((address - org()) / 4) - 1
-.endmacro
-
-.macro getdatafrompersonalnarc,monnum,formnum,num
-    .word 0xDC, monnum, formnum, num
-.endmacro
-
-.macro refreshmondata,battler
-    .word 0xDD, battler
-.endmacro
-
-.macro cmd_DE,num1,num2
-    .word 0xDE, num1, num2
-.endmacro
-
-.macro cmd_DF,num
-    .word 0xDF, num
-.endmacro
-
 .macro endscript
-    .word 0xE0
+    .word 0xDA
 .endmacro
 
+.macro cmd_DB,battler
+    .word 0xDB, battler
+.endmacro
+
+.macro cmd_DC
+    .word 0xDC
+.endmacro
+
+.macro cmd_DD,num1,num2,num3
+    .word 0xDD, num1, num2, num3
+.endmacro

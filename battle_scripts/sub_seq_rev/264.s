@@ -1,4 +1,4 @@
-.arm.big
+.nds
 
 .include "include/battlescriptcmd.s"
 .include "include/abilities.s"
@@ -6,7 +6,7 @@
 .include "include/monnums.s"
 .include "include/movenums.s"
 
-.create "sub_seq_rev\sub_seq_rev_264", 0
+.create "build/sub_seq_rev/sub_seq_rev_264", 0
 
 sub_seq_rev_264:
     if IF_MASK, VAR_06, 0x8800, _041C

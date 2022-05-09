@@ -1,4 +1,4 @@
-.arm.big
+.nds
 
 .include "include/battlescriptcmd.s"
 .include "include/abilities.s"
@@ -6,7 +6,7 @@
 .include "include/monnums.s"
 .include "include/movenums.s"
 
-.create "be_seq_rev\be_seq_rev_136", 0
+.create "build/be_seq_rev/be_seq_rev_136", 0
 
 be_seq_rev_136:
     if IF_MASK, VAR_FIELD_EFFECT, 0x3, _0094

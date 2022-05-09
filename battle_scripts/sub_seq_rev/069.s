@@ -1,4 +1,4 @@
-.arm.big
+.nds
 
 .include "include/battlescriptcmd.s"
 .include "include/abilities.s"
@@ -6,7 +6,7 @@
 .include "include/monnums.s"
 .include "include/movenums.s"
 
-.create "sub_seq_rev\sub_seq_rev_069", 0
+.create "build/sub_seq_rev/sub_seq_rev_069", 0
 
 sub_seq_rev_069:
     setstatus2effect2 BATTLER_ATTACKER2, BATTLER_DEFENDER2, 0x20

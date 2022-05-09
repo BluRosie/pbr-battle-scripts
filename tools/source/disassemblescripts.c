@@ -1454,19 +1454,19 @@ int main(int argc, char **argv)
         if (movetoa001 == 0)
         {
             sprintf(scriptname, "battle_scripts\\be_seq_rev\\%03d.s", i);
-            sprintf(sourcename, "be_seq_rev\\be_seq_rev_%03d", i);
+            sprintf(sourcename, "build/be_seq_rev/be_seq_rev_%03d", i);
             sprintf(basename, "be_seq_rev_%03d", i);
         }
         else if (movetoa000 == 0)
         {
             sprintf(scriptname, "battle_scripts\\sub_seq_rev\\%03d.s", i);
-            sprintf(sourcename, "sub_seq_rev\\sub_seq_rev_%03d", i);
+            sprintf(sourcename, "build/sub_seq_rev/sub_seq_rev_%03d", i);
             sprintf(basename, "sub_seq_rev_%03d", i);
         }
         else
         {
             sprintf(scriptname, "battle_scripts\\waza_seq_rev\\%03d.s", i);
-            sprintf(sourcename, "waza_seq_rev\\waza_seq_rev_%03d", i);
+            sprintf(sourcename, "build/waza_seq_rev/waza_seq_rev_%03d", i);
             sprintf(basename, "waza_seq_rev_%03d", i);
         }
 
@@ -1475,7 +1475,7 @@ int main(int argc, char **argv)
 
         scriptfile = fopen(scriptname, "w");
 
-        fprintf(scriptfile, ".arm.big\n\n.include \"include/battlescriptcmd.s\"\n.include \"include/abilities.s\"\n.include \"include/itemnums.s\"\n.include \"include/monnums.s\"\n.include \"include/movenums.s\"\n\n.create \"%s\", 0\n\n%s:\n", sourcename, basename);
+        fprintf(scriptfile, ".nds\n\n.include \"include/battlescriptcmd.s\"\n.include \"include/abilities.s\"\n.include \"include/itemnums.s\"\n.include \"include/monnums.s\"\n.include \"include/movenums.s\"\n\n.create \"%s\", 0\n\n%s:\n", sourcename, basename);
 
         elementnum = 0;
 

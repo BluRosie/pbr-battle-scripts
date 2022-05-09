@@ -1,4 +1,4 @@
-.arm.big
+.nds
 
 .include "include/battlescriptcmd.s"
 .include "include/abilities.s"
@@ -6,7 +6,7 @@
 .include "include/monnums.s"
 .include "include/movenums.s"
 
-.create "sub_seq_rev\sub_seq_rev_102", 0
+.create "build/sub_seq_rev/sub_seq_rev_102", 0
 
 sub_seq_rev_102:
     printmessage 0x1B7, 0x11, 0xFF, 0xFF, "NaN", "NaN", "NaN", "NaN"
