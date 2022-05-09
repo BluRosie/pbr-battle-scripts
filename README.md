@@ -58,4 +58,4 @@
 
 # Credits
 * [turtleisaac for template README from hg-engine](https://github.com/turtleisaac)
-* bgsamm on discord
+* [bgsamm for pbr narcs](https://github.com/bgsamm)

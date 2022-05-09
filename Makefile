@@ -39,13 +39,13 @@ all: scripts
 	$(FIXNARC) build/be_seq_rev_LE.narc output/be_seq_rev.narc
 
 build_tools:
-	#rm -r -f tools/source/armips
-	#cd tools/source ; git clone --recursive https://github.com/Kingcom/armips.git
-	#cd tools/source/armips ; mkdir build
-	#cd tools/source/armips/build ; cmake -DCMAKE_BUILD_TYPE=Release ..
-	#cd tools/source/armips/build ; cmake --build .
-	#mv tools/source/armips/build/armips tools/armips
-	#rm -r -f tools/source/armips
+	rm -r -f tools/source/armips
+	cd tools/source ; git clone --recursive https://github.com/Kingcom/armips.git
+	cd tools/source/armips ; mkdir build
+	cd tools/source/armips/build ; cmake -DCMAKE_BUILD_TYPE=Release ..
+	cd tools/source/armips/build ; cmake --build .
+	mv tools/source/armips/build/armips tools/armips
+	rm -r -f tools/source/armips
 
 	$(CC) $(CFLAGS) tools/source/swapnarcheader.c -o tools/fixnarc 
 
