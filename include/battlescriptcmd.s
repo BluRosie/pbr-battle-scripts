@@ -1,8 +1,32 @@
+// helpful constants for battle scripts that do not relate to certain commands
+
+// new effect
+
+ADD_STATUS_HONE_CLAWS equ 145
+ADD_STATUS_GUARD_SPLIT equ 146
+ADD_STATUS_POWER_SPLIT equ 147
+ADD_STATUS_QUIVER_DANCE equ 148
+ADD_STATUS_SOAK equ 149
+ADD_STATUS_COIL equ 150
+ADD_STATUS_SHIFT_GEAR equ 151
+ADD_STATUS_SHELL_SMASH equ 152
+ADD_STATUS_V_CREATE equ 153
+ADD_STATUS_AUTOTOMIZE equ 154
+
 // status change
 
-ADD_STATUS_SIDE     equ 0x20000000
+ADD_STATUS_WORK     equ 0x20000000
 ADD_STATUS_ATTACKER equ 0x40000000
 ADD_STATUS_DEFENDER equ 0x80000000
+
+STAT_HP equ 0
+STAT_ATTACK equ 1
+STAT_DEFENSE equ 2
+STAT_SPEED equ 3
+STAT_SPATK equ 4
+STAT_SPDEF equ 5
+STAT_ACCURACY equ 6
+STAT_EVASION equ 7
 
 ATTACK_UP equ 15
 DEFENSE_UP equ 16
@@ -155,6 +179,7 @@ BATTLER_x14              equ 0x14
 BATTLER_x15              equ 0x15
 BATTLER_ALL_REPLACED     equ 0x16
 BATTLER_xFF              equ 0xFF
+BATTLER_WORK             equ 0xFF
 
 .macro pokemonencounter,battler
     .word 0x1, battler
@@ -292,10 +317,12 @@ BATTLER_xFF              equ 0xFF
     .endif
 .endmacro
 
+// playanimation
 .macro seteffectprimary,battler
     .word 0x17, battler
 .endmacro
 
+// playanimation2
 .macro seteffectsecondary,battler,attacker,defender
     .word 0x18, battler, attacker, defender
 .endmacro
@@ -1130,6 +1157,19 @@ VAR_90 equ 90
     .word ((address - org()) / 4) - 1
 .endmacro
 
+MOVE_DATA_BATTLE_EFFECT equ 0
+MOVE_DATA_SPLIT equ 1
+MOVE_DATA_BASE_POWER equ 2
+MOVE_DATA_TYPE equ 3
+MOVE_DATA_ACCURACY equ 4
+MOVE_DATA_PP equ 5
+MOVE_DATA_EFFECT_CHANCE equ 6
+MOVE_DATA_TARGET equ 7
+MOVE_DATA_PRIORITY equ 8
+MOVE_DATA_FLAGS equ 9
+MOVE_DATA_APPEAL equ 10
+MOVE_DATA_CONTEST_TYPE equ 11
+
 .macro getmoveparameter,field
     .word 0xB7, field
 .endmacro
@@ -1236,6 +1276,7 @@ VAR_90 equ 90
     .word 0xCF
 .endmacro
 
+// check1hp
 .macro cmd_D0_checkhpsomething,battler
     .word 0xD0, battler
 .endmacro
