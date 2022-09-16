@@ -30,7 +30,7 @@ const char* Battlers[] =
     "BATTLER_x14",
     "BATTLER_x15",
     "BATTLER_ALL_REPLACED",
-    [0xFF] = "BATTLER_xFF",
+    [0xFF] = "BATTLER_WORK",
 };
 
 const char* IfConditions[] =
@@ -1829,12 +1829,12 @@ int main(int argc, char **argv)
                     }
                     break;
                 case 0x17:
-                    if (gLogging == 0) fprintf(scriptfile, "    seteffectprimary ");
+                    if (gLogging == 0) fprintf(scriptfile, "    playanimation ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s\n", Battlers[elementnum]);
                     break;
                 case 0x18:
-                    if (gLogging == 0) fprintf(scriptfile, "    seteffectsecondary ");
+                    if (gLogging == 0) fprintf(scriptfile, "    playanimation2 ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s, ", Battlers[elementnum]); // battler
                     GET_U32(elementnum, source);
@@ -1995,7 +1995,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source)); // address3
                     break;
                 case 0x34:
-                    if (gLogging == 0) fprintf(scriptfile, "    changevartomonvalue ");
+                    if (gLogging == 0) fprintf(scriptfile, "    changemondatabyvalue ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s, ", VarOperators[elementnum]);
                     GET_U32(elementnum, source);
@@ -2048,7 +2048,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "%s\n", BattleVars[elementnum]);
                     break;
                 case 0x3A:
-                    if (gLogging == 0) fprintf(scriptfile, "    changevartomonvalue2 ");
+                    if (gLogging == 0) fprintf(scriptfile, "    changemondatabyvar ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s, ", VarOperators[elementnum]);
                     GET_U32(elementnum, source);
@@ -2075,7 +2075,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "%d\n", elementnum);
                     break;
                 case 0x3E:
-                    if (gLogging == 0) fprintf(scriptfile, "    checkifchatot\n");
+                    if (gLogging == 0) fprintf(scriptfile, "    setmovetomirrormove\n");
                     break;
                 case 0x3F:
                     if (gLogging == 0) fprintf(scriptfile, "    sethaze\n");
@@ -2292,7 +2292,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source)); // address2
                     break;
                 case 0x64:
-                    if (gLogging == 0) fprintf(scriptfile, "    willprotectwork ");
+                    if (gLogging == 0) fprintf(scriptfile, "    tryprotect ");
                     GET_U32(elementnum, source);
                     if (gLogging == 1) log_address(GET_ADDRESS(elementnum, source));
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
@@ -2338,7 +2338,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "0x%X\n", elementnum);
                     break;
                 case 0x6C:
-                    if (gLogging == 0) fprintf(scriptfile, "    exitloopatvalue ");
+                    if (gLogging == 0) fprintf(scriptfile, "    jumpifvarisvalidbattler ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "0x%X, ", elementnum);
                     GET_U32(elementnum, source);
@@ -2388,7 +2388,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
                     break;
                 case 0x75:
-                    if (gLogging == 0) fprintf(scriptfile, "    dorapidspineffect\n");
+                    if (gLogging == 0) fprintf(scriptfile, "    rapidspin\n");
                     break;
                 case 0x76:
                     if (gLogging == 0) fprintf(scriptfile, "    changehprecoverybasedonweather\n");
@@ -2397,7 +2397,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "    hiddenpowerdamagecalc\n");
                     break;
                 case 0x78:
-                    if (gLogging == 0) fprintf(scriptfile, "    dopsychup\n");
+                    if (gLogging == 0) fprintf(scriptfile, "    psychup\n");
                     break;
                 case 0x79:
                     if (gLogging == 0) fprintf(scriptfile, "    tryfuturesight ");
@@ -2427,7 +2427,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "    beatupdamagecalc\n");
                     break;
                 case 0x7D:
-                    if (gLogging == 0) fprintf(scriptfile, "    dofollowme\n");
+                    if (gLogging == 0) fprintf(scriptfile, "    followme\n");
                     break;
                 case 0x7E:
                     if (gLogging == 0) fprintf(scriptfile, "    tryhelpinghand ");
@@ -2457,16 +2457,16 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
                     break;
                 case 0x82:
-                    if (gLogging == 0) fprintf(scriptfile, "    trymagiccoat ");
+                    if (gLogging == 0) fprintf(scriptfile, "    trysetmagiccoat ");
                     GET_U32(elementnum, source);
                     if (gLogging == 1) log_address(GET_ADDRESS(elementnum, source));
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
                     break;
                 case 0x83:
-                    if (gLogging == 0) fprintf(scriptfile, "    trymagiccoat2\n");
+                    if (gLogging == 0) fprintf(scriptfile, "    magiccoat\n");
                     break;
                 case 0x84:
-                    if (gLogging == 0) fprintf(scriptfile, "    dorevenge\n");
+                    if (gLogging == 0) fprintf(scriptfile, "    revengedamagecalc\n");
                     break;
                 case 0x85:
                     if (gLogging == 0) fprintf(scriptfile, "    trybreakscreens ");
@@ -2481,7 +2481,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
                     break;
                 case 0x87:
-                    if (gLogging == 0) fprintf(scriptfile, "    tryknockitemoff ");
+                    if (gLogging == 0) fprintf(scriptfile, "    tryknockoff ");
                     GET_U32(elementnum, source);
                     if (gLogging == 1) log_address(GET_ADDRESS(elementnum, source));
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
@@ -2583,7 +2583,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
                     break;
                 case 0x9B:
-                    if (gLogging == 0) fprintf(scriptfile, "    checkbattlercondition ");
+                    if (gLogging == 0) fprintf(scriptfile, "    checksidecondition ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s, ", Battlers[elementnum]); // battler
                     GET_U32(elementnum, source);
@@ -2621,6 +2621,8 @@ int main(int argc, char **argv)
                 case 0xA0:
                     if (gLogging == 0) fprintf(scriptfile, "    checktoxicspikes ");
                     GET_U32(elementnum, source);
+                    if (gLogging == 0) fprintf(scriptfile, "%s, ", Battlers[elementnum]); // battler
+                    GET_U32(elementnum, source);
                     if (gLogging == 1) log_address(GET_ADDRESS(elementnum, source));
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
                     break;
@@ -2637,7 +2639,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
                     break;
                 case 0xA2:
-                    if (gLogging == 0) fprintf(scriptfile, "    checkbattlersequal ");
+                    if (gLogging == 0) fprintf(scriptfile, "    checkonsameteam ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s, ", Battlers[elementnum]); // battler1
                     GET_U32(elementnum, source);
@@ -2647,10 +2649,10 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source)); // address
                     break;
                 case 0xA3:
-                    if (gLogging == 0) fprintf(scriptfile, "    trypickup\n");
+                    if (gLogging == 0) fprintf(scriptfile, "    pickup\n");
                     break;
                 case 0xA4:
-                    if (gLogging == 0) fprintf(scriptfile, "    dotrickroom\n");
+                    if (gLogging == 0) fprintf(scriptfile, "    trickroom\n");
                     break;
                 case 0xA5:
                     if (gLogging == 0) fprintf(scriptfile, "    checkmovefinished ");
@@ -2693,10 +2695,10 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
                     break;
                 case 0xAA:
-                    if (gLogging == 0) fprintf(scriptfile, "    donaturepower\n");
+                    if (gLogging == 0) fprintf(scriptfile, "    naturepower\n");
                     break;
                 case 0xAB:
-                    if (gLogging == 0) fprintf(scriptfile, "    dosecretpower\n");
+                    if (gLogging == 0) fprintf(scriptfile, "    secretpower\n");
                     break;
                 case 0xAC:
                     if (gLogging == 0) fprintf(scriptfile, "    trynaturalgift ");
@@ -2801,22 +2803,22 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
                     break;
                 case 0xBD:
-                    if (gLogging == 0) fprintf(scriptfile, "    initstartballguage ");
+                    if (gLogging == 0) fprintf(scriptfile, "    initstartballgauge ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s\n", Battlers[elementnum]);
                     break;
                 case 0xBE:
-                    if (gLogging == 0) fprintf(scriptfile, "    deletestartballguage ");
+                    if (gLogging == 0) fprintf(scriptfile, "    deletestartballgauge ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s\n", Battlers[elementnum]);
                     break;
                 case 0xBF:
-                    if (gLogging == 0) fprintf(scriptfile, "    initballguage ");
+                    if (gLogging == 0) fprintf(scriptfile, "    initballgauge ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s\n", Battlers[elementnum]);
                     break;
                 case 0xC0:
-                    if (gLogging == 0) fprintf(scriptfile, "    deleteballguage ");
+                    if (gLogging == 0) fprintf(scriptfile, "    deleteballgauge ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s\n", Battlers[elementnum]);
                     break;
@@ -2841,7 +2843,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "%s\n", Battlers[elementnum]);
                     break;
                 case 0xC5:
-                    if (gLogging == 0) fprintf(scriptfile, "    checkifcurrentmovehits ");
+                    if (gLogging == 0) fprintf(scriptfile, "    abilityeffectcheckonhit ");
                     GET_U32(elementnum, source);
                     if (gLogging == 1) log_address(GET_ADDRESS(elementnum, source));
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
@@ -2897,7 +2899,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "    giveupmessage\n");
                     break;
                 case 0xD0:
-                    if (gLogging == 0) fprintf(scriptfile, "    cmd_D0_checkhpsomething ");
+                    if (gLogging == 0) fprintf(scriptfile, "    checkshouldleavewith1hp ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s\n", Battlers[elementnum]);
                     break;
@@ -2910,7 +2912,7 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
                     break;
                 case 0xD2:
-                    if (gLogging == 0) fprintf(scriptfile, "    checknostatus ");
+                    if (gLogging == 0) fprintf(scriptfile, "    checksubstitute ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s, ", Battlers[elementnum]);
                     GET_U32(elementnum, source);
@@ -2929,13 +2931,13 @@ int main(int argc, char **argv)
                     if (gLogging == 0) fprintf(scriptfile, "%s\n", Battlers[elementnum]);
                     break;
                 case 0xD5:
-                    if (gLogging == 0) fprintf(scriptfile, "    checkwhenitemmakesmovehit ");
+                    if (gLogging == 0) fprintf(scriptfile, "    checkuturnitemeffect ");
                     GET_U32(elementnum, source);
                     if (gLogging == 1) log_address(GET_ADDRESS(elementnum, source));
                     if (gLogging == 0) fprintf(scriptfile, "_%04X\n", GET_ADDRESS(elementnum, source));
                     break;
                 case 0xD6:
-                    if (gLogging == 0) fprintf(scriptfile, "    cmd_D6 ");
+                    if (gLogging == 0) fprintf(scriptfile, "    swaptosubstitutesprite ");
                     GET_U32(elementnum, source);
                     if (gLogging == 0) fprintf(scriptfile, "%s\n", Battlers[elementnum]);
                     break;
